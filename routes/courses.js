@@ -2,7 +2,7 @@ const express = require('express');
 const Courses = require('../models/courses');
 const helpers = require('../helpers');
 
-const { defaultError } = helpers;
+const { customError, defaultError } = helpers;
 
 const app = express();
     
@@ -14,6 +14,7 @@ app.get('/courses', async (undefined, resp) => {
         if (errorFind) return defaultError(resp, errorFind);
         Courses.countDocuments((errorCount, total) => {
             if (errorCount) return defaultError(resp, errorCount);
+            if (total === 0) return customError(resp, 'No courses available');
             resp.json({ ok: true, total, courses });
         });
     });

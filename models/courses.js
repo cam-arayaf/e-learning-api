@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const helpers = require('../helpers');
+const constants = require('../constants');
 
-const { required, stringData } = helpers;
+const { required, stringData } = constants;
 
 const courseSchema = new mongoose.Schema({
     title: stringData,

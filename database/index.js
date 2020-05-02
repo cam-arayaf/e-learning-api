@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
+const constants = require('../constants');
 
-mongoose.connect(process.env.URL_DB, {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-    useUnifiedTopology: true
-}, err => {
+const { URL_DB } = process.env;
+const { options } = constants;
+
+mongoose.connect(URL_DB, options, err => {
     if (err) throw err;
     console.log('DB status: Online');
 });

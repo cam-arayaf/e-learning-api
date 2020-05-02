@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const helpers = require('../helpers');
+const constants = require('../constants');
 
-const { message } = helpers;
+const { message } = constants;
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
